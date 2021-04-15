@@ -60,7 +60,7 @@ add_indent_latex <- function(kable_input, positions,
     if (all_cols) {
       new_rowtext <- latex_row_cells(rowtext)
       new_rowtext <- lapply(new_rowtext, function(x) {
-        paste0("\\\\hspace\\{", level_of_indent ,"em\\}", x)
+        paste0("\\\\hangindent=", level_of_indent + 0.5, "em\\\\hspace\\{", level_of_indent ,"em\\}", x)
       })
       new_rowtext <- paste(unlist(new_rowtext), collapse = " & ")
     } else {
