@@ -79,7 +79,7 @@ add_indent_latex <- function(kable_input, positions,
 }
 
 latex_indent_unit <- function(rowtext, level_of_indent) {
-  paste0("\\\\hspace\\{", level_of_indent ,"em\\}", rowtext)
+  paste0("\\\\hangindent=", level_of_indent + 0.5, "em\\\\hspace\\{", level_of_indent ,"em\\}", rowtext)
 }
 
 
