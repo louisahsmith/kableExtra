@@ -510,7 +510,7 @@ styling_latex_repeat_header <- function(x, table_info, repeat_header_text,
 styling_latex_full_width <- function(x, table_info) {
   col_align <- as.character(factor(
     table_info$align_vector, c("c", "l", "r"),
-    c(">{\\\\centering}X", ">{\\\\raggedright}X", ">{\\\\raggedleft}X")
+    c(">{\\\\centering\\\\hangindent=.5em}X", ">{\\\\raggedright\\\\hangindent=.5em}X", ">{\\\\raggedleft\\\\hangindent=.5em}X")
   ))
   col_align[is.na(col_align)] <- table_info$align_vector[is.na(col_align)]
   col_align_vector <- col_align
