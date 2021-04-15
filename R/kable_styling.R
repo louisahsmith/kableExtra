@@ -444,11 +444,11 @@ styling_latex_repeat_header <- function(x, table_info, repeat_header_text,
                                         repeat_header_continued) {
   x <- str_split(x, "\n")[[1]]
   if (table_info$booktabs) {
-    header_rows_start <- which(x == "\\toprule")[1]
+    header_rows_start <- which(x %in% c("\\toprule", "\\toprule{}"))[1]
     if (is.null(table_info$colnames)) {
       header_rows_end <- header_rows_start
     } else {
-      header_rows_end <- which(x == "\\midrule")[1]
+      header_rows_end <- which(x %in% c("\\midrule", "\\midrule{}"))[1]
     }
   } else {
     header_rows_start <- which(x == "\\hline")[1]
@@ -471,7 +471,7 @@ styling_latex_repeat_header <- function(x, table_info, repeat_header_text,
   if (!table_info$booktabs) {
     bottom_part <- NULL
   } else {
-    index_bottomrule <- which(x == "\\bottomrule")
+    index_bottomrule <- which(x %in% c("\\bottomrule", "\\bottomrule{}"))
     x <- x[-index_bottomrule]
     x[index_bottomrule - 1] <- paste0(x[index_bottomrule - 1], "*")
 
